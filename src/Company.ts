@@ -1,15 +1,17 @@
-import faker from 'faker';
-export  class User
+import faker from "faker";
+export class Company
 {
-    name:string;
+    companyName:string;
+    catchPharse:string;
     location:
     {
         lat:number,
         lng:number
-    }
+    };
     constructor()
     {
-        this.name=faker.name.firstName();
+        this.companyName=faker.company.companyName();
+        this.catchPharse=faker.company.catchPhrase();
         this.location=
         {
             lat:parseFloat(faker.address.latitude()),
