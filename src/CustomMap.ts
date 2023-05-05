@@ -5,8 +5,9 @@ interface Mappable //Instructions to every other class
     {
         lat:number,
         lng:number
-    }
-}
+    };
+    markerContent():string
+};
 export class CustomMap
 {
     private googleMaps:google.maps.Map;
@@ -37,7 +38,7 @@ export class CustomMap
         {
             const infoWindow=new google.maps.InfoWindow(
                 {
-                    content:"Hi everyone!"
+                    content:mappable.markerContent()
                 });
             infoWindow.open(this.googleMaps,marker);
         })
