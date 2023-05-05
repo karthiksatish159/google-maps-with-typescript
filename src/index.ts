@@ -1,20 +1,8 @@
-// import { User } from "./User";
-// import { Company } from "./Company";
-// const user=new User();
-// console.log(user);
-// const company=new Company();
-(()=>
-{
-    navigator.geolocation.getCurrentPosition(function(data)
-    {
-        new google.maps.Map(document.getElementById("map") as HTMLElement,
-        {
-            zoom:20,
-            center:
-            {
-                lat:data.coords.latitude,
-                lng:data.coords.longitude
-            }
-        });
-    })
-})()
+import { CustomMap } from "./CustomMap";
+//* so here the customMap intention to create is to hide the functionalities what we are using for developers they dont wann 
+//* mess with this i.e reason while creating the google map properties in class i made private to restrict the access
+/**
+ * So what ever instance varible you created that should not access the google.maps.Map functionalites , 
+ * So now that map instance cannot access the google.map.Map object and the next user cannot mess the code 
+ */
+const map=new CustomMap("map");
