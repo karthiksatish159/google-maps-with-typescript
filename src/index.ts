@@ -12,3 +12,5 @@ const user=new User();
 const company=new Company();
 map.addMarker(user);
 map.addMarker(company);
+
+console.log("123")
