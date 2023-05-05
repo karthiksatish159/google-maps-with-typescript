@@ -1,4 +1,5 @@
-interface Mappable
+interface Mappable //Instructions to every other class 
+                   // On how they can be an argument to `addMarker`
 {
     location:
     {
@@ -23,7 +24,7 @@ export class CustomMap
     }
     addMarker(mappable:Mappable)
     {
-        new google.maps.Marker(
+       const marker= new google.maps.Marker(
             {
                 map:this.googleMaps,
                 position:
@@ -31,6 +32,14 @@ export class CustomMap
                     lat:mappable.location.lat,
                     lng:mappable.location.lng
                 }
-            })
+            });
+        marker.addListener('click',()=>
+        {
+            const infoWindow=new google.maps.InfoWindow(
+                {
+                    content:"Hi everyone!"
+                });
+            infoWindow.open(this.googleMaps,marker);
+        })
     }
 }
