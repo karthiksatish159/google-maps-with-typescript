@@ -1,5 +1,11 @@
-import {User} from "./User";
-import {Company} from "./Company";
+interface Mappable
+{
+    location:
+    {
+        lat:number,
+        lng:number
+    }
+}
 export class CustomMap
 {
     private googleMaps:google.maps.Map;
@@ -15,7 +21,7 @@ export class CustomMap
             }
         });
     }
-    addMarker(mappable:User|Company)
+    addMarker(mappable:Mappable)
     {
         new google.maps.Marker(
             {
@@ -27,5 +33,4 @@ export class CustomMap
                 }
             })
     }
-
 }
