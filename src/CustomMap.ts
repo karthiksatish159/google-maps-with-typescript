@@ -1,4 +1,4 @@
-interface Mappable //Instructions to every other class 
+export interface Mappable //Instructions to every other class 
                    // On how they can be an argument to `addMarker`
 {
     location:
@@ -6,7 +6,8 @@ interface Mappable //Instructions to every other class
         lat:number,
         lng:number
     };
-    markerContent():string
+    markerContent():string,
+    color:string
 };
 export class CustomMap
 {
